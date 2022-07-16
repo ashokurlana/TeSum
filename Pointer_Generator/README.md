@@ -27,21 +27,21 @@ PTBTokenizer tokenized 5 tokens at 68.97 tokens per second.
 
 ### 2. Data formate:
 ```
-python make_datafiles_Telugu_PG.py
+python3 make_PG_data.py
 ```
 
-This will create a `finished_files_m1` directory which process into .bin and vocab files.
+This will create a `pg_data` directory which process into .bin and vocab files.
 
 #### How to run
 ##### Training & Validation
 ```
-python train_Telugu.py >> log_txt_files/PG_train_val.txt
+python3 train_Telugu.py >> log_txt_files/PG_train_val.txt
 ```
 #### Testing:
 
 * After finding the best model by checking which iteration is converged (lets say ```model_30000_1629407459```), evaluate it on test data:
 ```
-python decode_m1_latest.py log_models/train_1617467291/model/model_30000_1629407459 
+python3 decode_m1_latest.py log_models/train_1617467291/model/model_30000_1629407459 
 ```
 This will generate decoded test summaries in a directory (lets say ```decode_model_30000_1629407459```).
 
@@ -49,6 +49,6 @@ This will generate decoded test summaries in a directory (lets say ```decode_mod
 
 Give the filepath at Pointer_Generator/rouge_calculation_pg.py#L23 [e.g `test_file_name = "decode_model_30000_1629407459"`]
 ```
-python rouge_calculation_pg.py
+python3 rouge_calculation_pg.py
 
 ```
