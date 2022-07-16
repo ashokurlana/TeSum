@@ -60,8 +60,9 @@ class Vocab(object):
 
 
   def load_pretrained_wordembeddings(self, embedding_dim,vocabs):
-    fasttext_path = "Cbow_fasttext/cc.te.300.vec"
-    #fasttext_path = "w2v_emb.txt" 
+    # fasttext_path = "Cbow_fasttext/wiki.te.vec"
+    # fasttext_path = "w2v_emb.txt" 
+    # fasttext_path = "w2v_emb.txt"
 
     word_embeddings = KeyedVectors.load_word2vec_format(fasttext_path)
     word_vectors = word_embeddings.wv

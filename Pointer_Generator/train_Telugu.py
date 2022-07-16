@@ -20,7 +20,8 @@ from eval_387 import *
 
 
 
-logfile = open("m1_log.txt","a+")
+logfile = open("pg_cv_ex_mup.txt","a+")
+# logfile = open("m1_log.txt","a+")
 
 use_cuda = config.use_gpu and torch.cuda.is_available()
 
@@ -39,9 +40,11 @@ class Train(object):
         if not os.path.exists(self.model_dir):
             os.mkdir(self.model_dir)
 
-        self.summary_writer = tf.compat.v1.summary.FileWriter(train_dir)
-        #self.summary_writer = tf.summary.FileWriter(train_dir)
-        #self.summary_writer = tf.contrib.summary.create_file_writer(train_dir)
+        # self.summary_writer = tf.compat.v1.summary.FileWriter(train_dir)
+        # self.summary_writer = tf.summary.FileWriter(train_dir)
+        # self.summary_writer = tf.train.SummaryWriter(train_dir)
+        self.summary_writer = tf.summary.create_file_writer(train_dir)
+
 
     def save_model(self, running_avg_loss, iter):
         state = {
@@ -148,12 +151,12 @@ class Train(object):
             if iter % 100 == 0: ##100
                 self.summary_writer.flush()
 
-            print_interval = 1000 #500 #1000
+            print_interval =500#1000 #500 #1000
             if iter % print_interval == 0:
                 print('steps %d, seconds for %d batch: %.2f , loss: %f' % (iter, print_interval, time.time() - start, loss))
                 start = time.time()
 
-            if iter % 3000 == 0:
+            if iter % 1000== 0: #10000#15000#3000 #20000
                 model_save_path = self.save_model(running_avg_loss, iter)
                 eval_processor = Evaluate(model_save_path)
                 running_avg_loss_of_val = eval_processor.run_eval()
@@ -173,7 +176,7 @@ class Train(object):
 
         logfile.write(("best_model = %s "%str(best_model)))
         logfile.write("\n")
-        logfile.write(("best_model_low loss = %s ",str(best_loss)))
+        logfile.write(("best_model_low loss = %s "%str(best_loss)))
         logfile.write("\n")
 
 
@@ -181,25 +184,25 @@ class Train(object):
 
 
 if __name__ == '__main__':
-	parser = argparse.ArgumentParser(description="Train script")
-	parser.add_argument("-m",
+    parser = argparse.ArgumentParser(description="Train script")
+    parser.add_argument("-m",
                         dest="model_file_path", 
                         required=False,
                         default=None,
                         help="Model file for retraining (default: None).")
-	args = parser.parse_args()
-	print("\n******************************** Starting ***********************************\n")
+    args = parser.parse_args()
+    print("\n******************************** Starting ***********************************\n")
+    print("config.hidden_dim = %f, config.emb_dim = %f, config.batch_size = %f, config.max_enc_steps = %f, config.max_dec_steps = %f, config.min_dec_steps = %f , config.beam_size  = %f, config.vocab_size =  = %f, config.max_iterations = %f, config.lr  = %f, config.eps  = %f, config.pointer_gen  = %s, config.is_coverage  = %s "%(config.hidden_dim, config.emb_dim, config.batch_size, config.max_enc_steps, config.max_dec_steps, config.min_dec_steps, config.beam_size, config.vocab_size, config.max_iterations, config.lr, config.eps, config.pointer_gen, config.is_coverage))
+    print("\n-------------------------------------------------------\n")
+    logfile.write(("config.hidden_dim = %f, config.emb_dim = %f, config.batch_size = %f, config.max_enc_steps = %f, config.max_dec_steps = %f, config.min_dec_steps = %f , config.beam_size  = %f, config.vocab_size =  = %f, config.max_iterations = %f, config.lr  = %f, config.eps  = %f, config.pointer_gen  = %s, config.is_coverage  = %s "%(config.hidden_dim, config.emb_dim, config.batch_size, config.max_enc_steps, config.max_dec_steps, config.min_dec_steps, config.beam_size, config.vocab_size, config.max_iterations, config.lr, config.eps, config.pointer_gen, config.is_coverage)))
+    logfile.write("\n")
 
-	print("config.hidden_dim = %f, config.emb_dim = %f, config.batch_size = %f, config.max_enc_steps = %f, config.max_dec_steps = %f, config.min_dec_steps = %f , config.beam_size  = %f, config.vocab_size =  = %f, config.max_iterations = %f, config.lr  = %f, config.eps  = %f, config.pointer_gen  = %s, config.is_coverage  = %s "%(config.hidden_dim, config.emb_dim, config.batch_size, config.max_enc_steps, config.max_dec_steps, config.min_dec_steps, config.beam_size, config.vocab_size, config.max_iterations, config.lr, config.eps, config.pointer_gen, config.is_coverage))
-
-	print("\n-------------------------------------------------------\n")
-	logfile.write(("config.hidden_dim = %f, config.emb_dim = %f, config.batch_size = %f, config.max_enc_steps = %f, config.max_dec_steps = %f, config.min_dec_steps = %f , config.beam_size  = %f, config.vocab_size =  = %f, config.max_iterations = %f, config.lr  = %f, config.eps  = %f, config.pointer_gen  = %s, config.is_coverage  = %s "%(config.hidden_dim, config.emb_dim, config.batch_size, config.max_enc_steps, config.max_dec_steps, config.min_dec_steps, config.beam_size, config.vocab_size, config.max_iterations, config.lr, config.eps, config.pointer_gen, config.is_coverage)))
-	logfile.write("\n")
-
-	train_processor = Train()
-	train_processor.trainIters(config.max_iterations, args.model_file_path)
-	print("Completed...")
-	print("\n############################# ENDING #######################################\n\n")
+    train_processor = Train()
+    print("Starting to Train")
+    print("Max iteration is",config.max_iterations)
+    train_processor.trainIters(config.max_iterations, args.model_file_path)
+    print("Completed...")
+    print("\n############################# ENDING #######################################\n\n")
 
 
 

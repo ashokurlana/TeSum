@@ -18,7 +18,8 @@ if torch.cuda.is_available():
 
 
 vocab_obj = Vocab(config.vocab_path, config.vocab_size)
-pretrained_word_embedding = vocab_obj.load_pretrained_wordembeddings(config.emb_dim, vocab_obj)## you Embmatrix[id]=word_vector;
+# To use any pretrained_embeddings uncomment the below line
+# pretrained_word_embedding = vocab_obj.load_pretrained_wordembeddings(config.emb_dim, vocab_obj)## you Embmatrix[id]=word_vector;
 
 
 def init_lstm_wt(lstm):
@@ -52,16 +53,16 @@ class Encoder(nn.Module):
 
         ######## No-Pretrained word embeddings ###################
 
-        #self.embedding = nn.Embedding(config.vocab_size, config.emb_dim)
-        #init_wt_normal(self.embedding.weight)
+        self.embedding = nn.Embedding(config.vocab_size, config.emb_dim)
+        init_wt_normal(self.embedding.weight)
 
         ######## Pretrained word embeddings ###################      
 
         #self.embedding = nn.Embedding.from_pretrained(pretrained_word_embedding, freeze=True)
         #self.embedding.weight = nn.Parameter(pretrained_word_embedding, requires_grad=False) ##freeze=True, regard=False means weights wont update/change.
 
-        self.embedding = nn.Embedding.from_pretrained(pretrained_word_embedding,freeze=False)
-        self.embedding.weight = nn.Parameter(pretrained_word_embedding, requires_grad=True)##weights has to update
+        # self.embedding = nn.Embedding.from_pretrained(pretrained_word_embedding,freeze=False)
+        # self.embedding.weight = nn.Parameter(pretrained_word_embedding, requires_grad=True)##weights has to update
 
         self.lstm = nn.LSTM(config.emb_dim, config.hidden_dim, num_layers=1, batch_first=True, bidirectional=True)
         init_lstm_wt(self.lstm)
@@ -152,16 +153,16 @@ class Decoder(nn.Module):
 
         ######## No-Pretrained word embeddings ###################      
 
-        #self.embedding = nn.Embedding(config.vocab_size, config.emb_dim)
-        #init_wt_normal(self.embedding.weight)
+        self.embedding = nn.Embedding(config.vocab_size, config.emb_dim)
+        init_wt_normal(self.embedding.weight)
    
         ######## Pretrained word embeddings ###################      
 
         #self.embedding = nn.Embedding.from_pretrained(pretrained_word_embedding, freeze=True)
         #self.embedding.weight = nn.Parameter(pretrained_word_embedding, requires_grad=False) ##freeze=True, regard=False means weights wont update
 
-        self.embedding = nn.Embedding.from_pretrained(pretrained_word_embedding,freeze=False)
-        self.embedding.weight = nn.Parameter(pretrained_word_embedding, requires_grad=True)##weights has to update
+        # self.embedding = nn.Embedding.from_pretrained(pretrained_word_embedding,freeze=False)
+        # self.embedding.weight = nn.Parameter(pretrained_word_embedding, requires_grad=True)##weights has to update
 
 
         self.x_context = nn.Linear(config.hidden_dim * 2 + config.emb_dim, config.emb_dim)

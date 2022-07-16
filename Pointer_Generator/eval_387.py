@@ -27,7 +27,8 @@ class Evaluate(object):
         eval_dir = os.path.join(config.log_root, 'eval_%s' % (model_name))
         if not os.path.exists(eval_dir):
             os.mkdir(eval_dir)
-        self.summary_writer = tf.compat.v1.summary.FileWriter(eval_dir)
+        # self.summary_writer = tf.compat.v1.summary.FileWriter(eval_dir)
+        self.summary_writer = tf.summary.create_file_writer(eval_dir)
         self.model = Model(model_file_path, is_eval=True)
 
     def eval_one_batch(self, batch):
@@ -92,20 +93,21 @@ class Evaluate(object):
 
 
 if __name__ == '__main__':
-	path = config.log_root ## basically log file
-	list_of_directories = sorted(os.listdir(path), reverse=True)
-	list_of_directories = [idx for idx in list_of_directories if idx.lower().startswith("train_")]
-	#print("list_of_directories of trained model: ",list_of_directories)
-	if(len(list_of_directories)!=0):
-		directory_for_validation = list_of_directories[0] ## considering the recent files for validation
-
-	model_filename = os.path.join(path,directory_for_validation,"model")
-	list_of_decoder_files = sorted(os.listdir(model_filename))	
-	for model_name in list_of_decoder_files:
-		full_path_model = os.path.join(model_filename,model_name)
-		model_iteration_num = model_name.split("_")[1]
-
-		eval_processor = Evaluate(full_path_model)
-		val_loss = eval_processor.run_eval()
+    path = config.log_root ## basically log file
+    list_of_directories = sorted(os.listdir(path), reverse=True)
+    list_of_directories = [idx for idx in list_of_directories if idx.lower().startswith("train_")]
+    #print("list_of_directories of trained model: ",list_of_directories)
+    if(len(list_of_directories)!=0):
+        directory_for_validation = list_of_directories[0] ## considering the recent files for validation
+    
+    model_filename = os.path.join(path,directory_for_validation,"model")
+    list_of_decoder_files = sorted(os.listdir(model_filename))
+    for model_name in list_of_decoder_files:
+        full_path_model = os.path.join(model_filename,model_name)
+        model_iteration_num = model_name.split("_")[1]
+        
+        eval_processor = Evaluate(full_path_model)
+        val_loss = eval_processor.run_eval()
+        print("validation_loss: ", val_loss)
 
 

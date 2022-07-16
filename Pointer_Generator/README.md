@@ -43,7 +43,7 @@ python3 train_Telugu.py >> log_txt_files/PG_train_val.txt
 ```
 python3 decode_m1_latest.py log_models/train_1617467291/model/model_30000_1629407459 
 ```
-This will generate decoded test summaries in a directory (lets say ```decode_model_30000_1629407459```).
+This will generate decoded test summaries in a directory (lets say ```decode_model_30000_1629407459```) and ```pg_rouge_scores.csv```.
 
 * To get rouge score run below command
 
