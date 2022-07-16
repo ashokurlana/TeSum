@@ -45,10 +45,3 @@ python3 decode_m1_latest.py log_models/train_1617467291/model/model_30000_162940
 ```
 This will generate decoded test summaries in a directory (lets say ```decode_model_30000_1629407459```) and ```pg_rouge_scores.csv```.
 
-* To get rouge score run below command
-
-Give the filepath at Pointer_Generator/rouge_calculation_pg.py#L23 [e.g `test_file_name = "decode_model_30000_1629407459"`]
-```
-python3 rouge_calculation_pg.py
-
-```
