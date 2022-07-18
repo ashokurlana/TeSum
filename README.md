@@ -3,8 +3,7 @@ This repository contain TeSum dataset and benchmark models implementation for Te
 
 
 ### Step 1 Download the data
-Download the TeSum dataset from [here](https://drive.google.com/drive/folders/1k-1ph_75tPEZ6q74_NWkc-DXKRHSLKY_?usp=sharing)
-and put all the .json files in one directory (e.g. Tesum_Data/Dataset/)
+Download the TeSum dataset from ```tesum directory```
 
 ### Step 2 preprocessing of the data
 Run 
