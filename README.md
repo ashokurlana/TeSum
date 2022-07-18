@@ -20,4 +20,4 @@ You can see the individual directories for above mentioned models. Go to the res
 
 ##### Note:  All the experiments were performed on a single NVIDIA GeForce GTX 1080 GPU.
 
-
+	
