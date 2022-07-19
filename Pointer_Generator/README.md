@@ -25,7 +25,7 @@ text
 PTBTokenizer tokenized 5 tokens at 68.97 tokens per second.
 ```
 
-### 2. Data formate:
+### 2. Data format:
 ```
 python3 make_PG_data.py
 ```
