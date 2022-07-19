@@ -10,9 +10,9 @@ vocab_path = os.path.join(root_dir, "pointer_generator/pg_data/vocab")
 
 # log_root = os.path.join(root_dir, "pointer_generator/log_models")#s2s
 #log_root = os.path.join(root_dir, "log_models_pg")#pg
-log_root = os.path.join(root_dir, "pointer_generator/log_models_pg_cv_ex_mup")#pg_cv_w2v
+log_root = os.path.join(root_dir, "pointer_generator/log_models")#pg_cv_w2v
 
-modelname = "pg_cv_ex_mup"
+modelname = "pg"
 
 # Hyperparameters
 use_gpu=True
