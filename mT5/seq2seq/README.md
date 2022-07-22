@@ -15,7 +15,7 @@ $ bash setup.sh
 $ python extract_data.py -i tesum_data/ -o XLSum_input/
 ```
 This will create the source and target training and evaluation filepairs under `XLSum_input/individual/telugu`.
-
+```
 
 ## Training & Evaluation
 
@@ -42,7 +42,8 @@ $ python pipeline.py \
     --do_eval
 ```  
 
-### Evaluation
+## Testing
+
 * To calculate rouge scores on test sets using a trained model, use the following snippet:
 
 ```bash
