@@ -12,22 +12,15 @@ def get_contents(line):
     return line["summary"], line["cleaned_text"]
 
 def extract_data(input_dir, output_dir):
-    multilingual_dir = os.path.join(output_dir,"multilingual")
-    os.makedirs(multilingual_dir, exist_ok=True)
-
     f_iterator = glob.glob(os.path.join(input_dir,"*.jsonl"))
-    
+    print(f_iterator)
     for input_file in tqdm(f_iterator):
-        print(input_file)
-        lang = "_".join(os.path.basename(input_file).rsplit("_")[:-1])
-        lang_dir = os.path.join(output_dir, "individual", lang)
-        os.makedirs(lang_dir, exist_ok=True)
-
-        source_file = os.path.join(lang_dir,os.path.basename(input_file).replace(".jsonl", ".source").rsplit("_", 1)[1])
-
-        target_file = os.path.join(lang_dir,os.path.basename(input_file).replace(".jsonl", ".target").rsplit("_", 1)[1])
-        # print("reached_here")
-        # print(input_file)
+        print("input_file: ", input_file)
+        tar_dir = os.path.join(output_dir)
+        os.makedirs(tar_dir, exist_ok=True)
+        source_file = os.path.join(tar_dir,os.path.basename(input_file).replace(".jsonl", ".source"))
+        print(source_file)
+        target_file = os.path.join(tar_dir,os.path.basename(input_file).replace(".jsonl", ".target"))
         with open(input_file, 'r', encoding='utf-8') as inpf:
             with open(source_file, 'w') as srcf, open(target_file, 'w') as tgtf:
                 for line in inpf:
@@ -39,13 +32,6 @@ def extract_data(input_dir, output_dir):
                     if summary.strip()!="" and text.strip()!="":
                         print(text, file=srcf)
                         print(summary, file=tgtf)
-
-        if source_file.endswith("train.source"):
-            shutil.copy(source_file,os.path.join(multilingual_dir,lang + "_" + os.path.basename(source_file)))
-
-            shutil.copy(target_file,os.path.join(multilingual_dir,lang + "_" + os.path.basename(target_file)))
-
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--input_dir', '-i', type=str,required=True,metavar='PATH',help="Input directory")

@@ -11,11 +11,10 @@ $ bash setup.sh
 * Use the newly created environment for running rest of the commands.
 
 ## Extracting data
-
-$ python extract_data.py -i tesum_data/ -o XLSum_input/
 ```
-This will create the source and target training and evaluation filepairs under `XLSum_input/individual/telugu`.
+$ python extract_data.py -i tesum_data/ -o mt5_data/
 ```
+* This will create the source and target training and evaluation filepairs under `mt5_data/`.
 
 ## Training & Evaluation
 
