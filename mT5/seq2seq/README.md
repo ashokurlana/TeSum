@@ -14,7 +14,7 @@ $ bash setup.sh
 ```
 $ python extract_data.py -i tesum_data/ -o tesum_input/
 ```
-* This will create the source and target training and evaluation filepairs under `mt5_data/`.
+* This will create the source and target training and evaluation filepairs under `tesum_input/`.
 
 ## Training & Evaluation
 
@@ -40,6 +40,8 @@ $ python pipeline.py \
     --do_train \
     --do_eval
 ```  
+
+For a detailed example, refer to [trainer.sh](trainer.sh)
 
 ## Testing
 
