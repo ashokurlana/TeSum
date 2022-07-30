@@ -305,7 +305,7 @@ def main():
 
         type2counts = {
             "train" : [data_args.n_train, data_args.max_target_length, training_args.do_train],
-            "val"   : [data_args.n_val, data_args.val_max_target_length, training_args.do_train],
+            "dev"   : [data_args.n_val, data_args.val_max_target_length, training_args.do_train],
             "test"  : [data_args.n_test, data_args.test_max_target_length, training_args.do_eval or training_args.do_predict]
         }
         prefix = model.config.prefix or ""
@@ -397,7 +397,7 @@ def main():
     eval_dataset = (
         dataset_class(
             tokenizer,
-            type_path="val",
+            type_path="dev",
             data_dir=data_args.data_dir,
             n_obs=data_args.n_val,
             max_target_length=data_args.val_max_target_length,
@@ -464,14 +464,14 @@ def main():
         logger.info("*** Evaluate ***")
 
         metrics = trainer.evaluate(
-            metric_key_prefix="val", max_length=data_args.val_max_target_length, num_beams=data_args.eval_beams
+            metric_key_prefix="dev", max_length=data_args.val_max_target_length, num_beams=data_args.eval_beams
         )
         metrics["val_n_objs"] = data_args.n_val
         metrics["val_loss"] = round(metrics["val_loss"], 4)
 
         if trainer.is_world_process_zero():
 
-            handle_metrics("val", metrics, training_args.output_dir)
+            handle_metrics("dev", metrics, training_args.output_dir)
             all_metrics.update(metrics)
 
     if training_args.do_predict:
