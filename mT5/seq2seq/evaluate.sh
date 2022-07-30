@@ -4,11 +4,11 @@
 export seed=1234
 
 # model settings
-export model_name="XLSum_output/individual/telugu"
+export model_name=<path/to/trained/model/directory>
     
 # input / output settings
-export input_dir="XLSum_input/individual/telugu"
-export output_dir="XLSum_output/individual/telugu"
+export input_dir="tesum_input"
+export output_dir="tesum_output"
 
 # batch / sequence sizes
 export PER_DEVICE_EVAL_BATCH_SIZE=1

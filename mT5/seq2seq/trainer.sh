@@ -29,8 +29,8 @@ export overwrite_output_dir=true
 export seed=1234
 
 # input / output settings
-export input_dir="XLSum_input/individual/telugu"
-export output_dir="XLSum_output/individual/telugu"
+export input_dir="tesum_input"
+export output_dir="tesum_output"
 
 # batch / sequence sizes
 export PER_DEVICE_TRAIN_BATCH_SIZE=1

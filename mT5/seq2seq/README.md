@@ -12,7 +12,7 @@ $ bash setup.sh
 
 ## Extracting data
 ```
-$ python extract_data.py -i tesum_data/ -o mt5_data/
+$ python extract_data.py -i tesum_data/ -o tesum_input/
 ```
 * This will create the source and target training and evaluation filepairs under `mt5_data/`.
 
@@ -22,8 +22,8 @@ $ python extract_data.py -i tesum_data/ -o mt5_data/
 ```bash
 $ python pipeline.py \
     --model_name_or_path "google/mt5-base" \
-    --data_dir "XLSum_input/individual/telugu" \
-    --output_dir "XLSum_output/individual/telugu" \
+    --data_dir "tesum_input" \
+    --output_dir "tesum_output" \
     --lr_scheduler_type="linear" \
     --learning_rate=5e-4 \
     --warmup_steps 100 \
@@ -48,8 +48,8 @@ $ python pipeline.py \
 ```bash
 $ python pipeline.py \
     --model_name_or_path <path/to/trained/model/directory> \
-    --data_dir "XLSum_input/individual/telugu" \
-    --output_dir "XLSum_output/individual/telugu" \
+    --data_dir "tesum_input" \
+    --output_dir "tesum_output" \
     --rouge_lang "telugu" \ 
     --predict_with_generate \
     --length_penalty 0.6 \
