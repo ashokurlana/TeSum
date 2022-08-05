@@ -20,5 +20,6 @@ python run_summarization.py \
     --fp16 True \
     --overwrite_output_dir \
     --predict_with_generate \
+    --num_train_epochs 5 \
     --summary_column summary \
     --text_column text $@
