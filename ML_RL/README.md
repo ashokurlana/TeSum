@@ -7,10 +7,16 @@ pip install -r requirements.txt
 ```
 
 ## Data preprocessing
+
+```
+python data_preparation.py
+```
+You will see `telugu_data` directory.
+
 ```
 python make_data_files_Telugu_ML_RL.py
 ```
-You will see `telugu_data` directory.
+You will see `telugu_data/finished_data` directory.
 
 ## Training
 * As suggested in [Paulus et al. (2018)](https://arxiv.org/pdf/1705.04304.pdf), first pretrain the seq-to-seq model using MLE (with Python 3):
