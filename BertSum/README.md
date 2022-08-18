@@ -19,6 +19,12 @@ unzip the zipfile and put all `.pt` files into `bert_data`
 
 ### Option 2: process the data yourself
 #### step 1. Data preprocessing
+
+```
+python sample_directory_creation.py
+```
+You will see ```data_samples``` directory.
+
 ```
 python make_datafiles_BertSum_Telugu.py
 ```
