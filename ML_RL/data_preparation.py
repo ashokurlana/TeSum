@@ -61,8 +61,8 @@ def main():
 	parser = argparse.ArgumentParser(description='ML_RL data formation')
 	parser.add_argument('-train_path', type=str, default="tesum_data/train.jsonl", help='training data path')
 	parser.add_argument('-dev_path', type=str, default="tesum_data/dev.jsonl", help='validation data path') 
-	parser.add_argument('-test_path', type=str, default="tesum_data/dev.jsonl", help='test data path')
-	parser.add_argument('-save_path', type=str, default="telugu_data/unfinished/", help='test data path')
+	parser.add_argument('-test_path', type=str, default="tesum_data/test.jsonl", help='test data path')
+	parser.add_argument('-save_path', type=str, default="telugu_data/unfinished/", help='data save path')
 	args = parser.parse_args()
 
 	make_folder(args.save_path)
