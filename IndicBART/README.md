@@ -16,7 +16,9 @@ This script will create a `train, dev, test csv files'
 
 ### Run the script
 
-To run the mBART you can use the `run.sh` script.
+To run the IndicBART_XLSUM you can use the `run.sh` script. 
+
+Note: Change the model name from IndicBART_XLSUM to IndicBARTSS to finetune the IndicBART model on TeSum corpus.
 
 ```sh
 sh run.sh
