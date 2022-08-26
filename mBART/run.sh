@@ -2,12 +2,12 @@ python run_summarization.py \
     --model_name_or_path facebook/mbart-large-50 \
     --do_train \
     --do_eval \
-    --d0_preditct \
+    --d0_predict \
     --lang telugu \
     --train_file train.csv \
     --validation_file dev.csv \
     --test_file test.csv \
-    --max_source_length 1024 \
+    --max_source_length 512 \
     --max_target_length 200 \
     --val_max_target_length 200 \
     --source_prefix "summarize: " \
@@ -20,6 +20,6 @@ python run_summarization.py \
     --fp16 True \
     --overwrite_output_dir \
     --predict_with_generate \
-    --num_train_epochs 5 \
+    --num_train_epochs 1 \
     --summary_column summary \
     --text_column text $@
