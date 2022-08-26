@@ -2,7 +2,7 @@ python run_summarization.py \
     --model_name_or_path facebook/mbart-large-50 \
     --do_train \
     --do_eval \
-    --d0_predict \
+    --do_predict \
     --lang telugu \
     --train_file train.csv \
     --validation_file dev.csv \
