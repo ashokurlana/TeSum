@@ -1,7 +1,7 @@
 * We used a modified fork of [ML_RL model implementation](https://github.com/rohithreddy024/Text-Summarizer-Pytorch) for our experiments.
 
 
-## Create conda environmet
+## Create conda environment
 ```
 conda create -n myenv python=3.6.5
 ```
