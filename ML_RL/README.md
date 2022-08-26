@@ -48,11 +48,4 @@ python eval_tel.py --task=validate --start_from=0100000.tar
 python eval_tel.py --task=test --load_model=0200000.tar
 ```
 
-### Decode summaries from the pretrained model
-Download the pretrained model from(yet to update) and put it in `saved_models` directory. You will also need a preprocessed version of the TeSum dataset.  Please follow the `installations` and `Data preprocessing` instructions. 
-
-After that, Run
-```
-python eval_tel.py --task=test --load_model=0014000.tar
-```
 
