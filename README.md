@@ -13,7 +13,7 @@ Download the TeSum dataset from ```tesum_data``` directory
 #### BERTSum : [Text Summarization with Pretrained Encoders](https://arxiv.org/pdf/1908.08345.pdf)
 #### mT5 : [XL-Sum: Large-Scale Multilingual Abstractive Summarization for 44 Languages](https://aclanthology.org/2021.findings-acl.413.pdf)
 #### mBART50 : [Multilingual Translation with Extensible Multilingual Pretraining and Finetuning](https://arxiv.org/pdf/2008.00401.pdf)
-
+#### IndicBART : [IndicBART: A Pre-trained Model for Natural Language Generation of Indic Languages](https://arxiv.org/pdf/2109.02903.pdf)
 
 
 You can see the individual directories for above mentioned models. Go to the respective model directory and follow the corresponding instructions to setup the models.
