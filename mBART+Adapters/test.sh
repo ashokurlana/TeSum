@@ -1,0 +1,29 @@
+python3 run_adapter.py \
+    --model_name_or_path facebook/mbart-large-50 \
+    --do_train False\
+    --do_eval False\
+    --do_predict \
+    --train_adapter \
+    --load_adapter summarization \
+    --adapter_config "pfeiffer" \
+    --adapter_non_linearity "relu" \
+    --adapter_reduction_factor 2 \
+    --lang te_IN \
+    --train_file train.csv \
+    --validation_file dev.csv \
+    --test_file test.csv \
+    --max_source_length 512 \
+    --max_target_length 256 \
+    --val_max_target_length 256 \
+    --learning_rate 1e-4 \
+    --output_dir "tmp/outputs/" \
+    --logging_strategy "epoch" \
+    --save_strategy "no" \
+    --fp16 True \
+    --per_device_train_batch_size=2 \
+    --per_device_eval_batch_size=2\
+    --overwrite_output_dir \
+    --summary_column summary \
+    --num_train_epochs 1 \
+    --predict_with_generate \
+    --text_column text $@
