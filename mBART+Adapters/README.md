@@ -23,7 +23,7 @@ sh train.sh
 You will see the `summarization` directory in the `tmp/outputs` path. 
 ### Testing
 
-To test trained adapter you can use the `test.sh` script. To load the trained adapter pass the generated summarization directory path.
+To perform the testing with trained adapter you can use the `test.sh` script. To load the trained adapter pass the generated summarization directory path.
 
 ```sh
 sh test.sh
