@@ -2,7 +2,7 @@ python run_summarization.py \
     --model_name_or_path google/mt5-base \
     --do_train \
     --do_eval \
-    --d0_predict \
+    --do_predict \
     --lang telugu \
     --train_file train.csv \
     --validation_file dev.csv \
@@ -17,7 +17,6 @@ python run_summarization.py \
     --dataloader_num_workers 4 \
     --logging_strategy "epoch" \
     --save_strategy "no" \
-    --fp16 True \
     --overwrite_output_dir \
     --predict_with_generate \
     --num_train_epochs 8 \
