@@ -2,7 +2,7 @@ python run_summarization.py \
     --model_name_or_path ai4bharat/IndicBART-XLSum \
     --do_train \
     --do_eval \
-    --d0_preditct \
+    --do_preditct \
     --lang te_IN \
     --train_file train.csv \
     --validation_file dev.csv \
