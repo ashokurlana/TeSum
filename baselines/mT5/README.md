@@ -1,7 +1,25 @@
-# XL-Sum
-This repository contain [XL-Sum: Large-Scale Multilingual Abstractive Summarization for 44 Languages](https://aclanthology.org/2021.findings-acl.413.pdf) model implementation.
+We use a modified fork of [huggingface transformers](https://github.com/huggingface/transformers) for our experiments.
 
-#### Experimented on TeSum data for Telugu abstractive summarization
+#### Install environment
 
-#### Training & Evaluation
-  * See [training and evaluation module.](seq2seq/)
+```sh
+pip install -r requirements.txt
+```
+
+### Data format:
+```
+python3 data_format.py
+```
+
+This script will create a `train, dev, test csv files'
+
+
+### Run the script
+
+To run the mT5-base you can use the `run.sh` script.
+
+```sh
+sh run.sh
+```
+
+
