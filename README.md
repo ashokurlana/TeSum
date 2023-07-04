@@ -1,23 +1,33 @@
-## Telugu Abstractive Summarization
-This repository contain TeSum dataset and benchmark models implementation for Telugu language.
+## TeSum
+
+## Overview
+This repository includes the TeSum dataset and scripts for the baselines.
+
+## Data
+
+Please find the data [here](https://ltrc.iiit.ac.in/showfile.php?filename=downloads/teSum/)
 
 
-### Step 1 Download the data
-Download the TeSum dataset from ```tesum_data``` directory
+## License
+Our materials are released under the 
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
+## Reference
+If you use our corpus or code, please kindly cite:
 
-## Benchmark Models for Telugu Abstractive Summarization
+```
+@inproceedings{urlana-etal-2022-tesum,
+    title = "{T}e{S}um: Human-Generated Abstractive Summarization Corpus for {T}elugu",
+    author = "Urlana, Ashok  and Surange, Nirmal  and Baswani, Pavan  and Ravva, Priyanka  and Shrivastava, Manish",
+    booktitle = "Proceedings of the Thirteenth Language Resources and Evaluation Conference",
+    month = jun,
+    year = "2022",
+    address = "Marseille, France",
+    publisher = "European Language Resources Association",
+    url = "https://aclanthology.org/2022.lrec-1.614",
+    pages = "5712--5722",
+}
+```
 
-#### Pointer_Generator : [ Get To The Point: Summarization with Pointer-Generator Networks ](https://arxiv.org/pdf/1704.04368.pdf)
-#### ML_RL: [A Deep Reinforced Model For Abstractive Summarization ](https://arxiv.org/pdf/1705.04304.pdf)
-#### BERTSum : [Text Summarization with Pretrained Encoders](https://arxiv.org/pdf/1908.08345.pdf)
-#### mT5 : [mT5: A massively multilingual pre-trained text-to-text transformer](https://arxiv.org/pdf/2010.11934.pdf)
-#### mBART50 : [Multilingual Translation with Extensible Multilingual Pretraining and Finetuning](https://arxiv.org/pdf/2008.00401.pdf)
-#### IndicBART : [IndicBART: A Pre-trained Model for Natural Language Generation of Indic Languages](https://arxiv.org/pdf/2109.02903.pdf)
-#### Adapters: [AdapterHub: A Framework for Adapting Transformers](https://aclanthology.org/2020.emnlp-demos.7.pdf)
-
-You can see the individual directories for above mentioned models. Go to the respective model directory and follow the corresponding instructions to setup the models.
-
-##### Note:  All the experiments were performed on a single NVIDIA GeForce GTX 1080 GPU.
 
 	
