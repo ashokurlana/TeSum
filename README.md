@@ -1,11 +1,7 @@
 ## TeSum
 
 ## Overview
-This repository includes the TeSum dataset and scripts for the baselines.
-
-## Data
-
-Please find the data [here](https://ltrc.iiit.ac.in/showfile.php?filename=downloads/teSum/)
+This repository includes the TeSum dataset under `TeSum_data/` and scripts for the baselines under `baselines/`.
 
 
 ## License
