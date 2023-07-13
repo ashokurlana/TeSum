@@ -9,3 +9,9 @@
 #### Adapters: [AdapterHub: A Framework for Adapting Transformers](https://aclanthology.org/2020.emnlp-demos.7.pdf)
 
 You can see the individual directories for above mentioned models. Go to the respective model directory and follow the corresponding instructions to setup the models.
+
+### Trained Model
+
+You can download the mBART-large50 fine-tuned on TeSum dataset. Our model publicly available on huggingface.
+
+[mBART-TeSum](https://huggingface.co/ashokurlana/mBART-TeSum)
